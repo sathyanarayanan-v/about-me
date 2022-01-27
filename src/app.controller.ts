@@ -1,12 +1,22 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, HttpStatus, Res } from '@nestjs/common';
 import { AppService } from './app.service';
-
+import { Response } from 'express';
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor() {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Get('')
+  getStatus(@Res() res: Response) {
+    res
+      .status(200)
+      .redirect(
+        HttpStatus.MOVED_PERMANENTLY,
+        'https://lotusdecoreandrental.com',
+      );
+  }
+
+  @Get('health')
+  getHealth() {
+    return true;
   }
 }
