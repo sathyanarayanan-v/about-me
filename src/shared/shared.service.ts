@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import * as nodemailer from 'nodemailer';
-import { loggerInstance } from 'src/logger/index';
 import { orderPlacedEmail } from './html';
 import * as moment from 'moment';
 @Injectable()
@@ -43,18 +42,23 @@ export class SharedService {
     return new Promise<boolean>((resolve, reject) => {
       mailTransport.sendMail(mailOptions, function (error: any, response: any) {
         if (error) {
-          loggerInstance.log(
-            `Some error occurerd while sending mail. ${error}`,
-            'error',
-            'Nodemailer',
+          console.log(
+            `Some error occurerd while sending mail. ${error}` +
+              ' ' +
+              'error' +
+              ' ' +
+              'Nodemailer' +
+              ' ',
           );
           reject(false);
         } else {
           console.log(response);
-          loggerInstance.log(
-            `Mail successfully sent to email - ${to}`,
-            'info',
-            'Nodemailer',
+          console.log(
+            `Mail successfully sent to email - ${to}` +
+              ' ' +
+              'info' +
+              ' ' +
+              'Nodemailer',
           );
           resolve(true);
         }

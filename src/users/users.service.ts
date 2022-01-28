@@ -8,7 +8,6 @@ import {
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateRoleDto, UpdateUserDto } from './dto/update-user.dto';
 import * as bcrypt from 'bcrypt';
-import { loggerInstance } from 'src/logger';
 import { LoginDTO } from 'src/auth/auth.dto';
 import { User } from './entities/user.entity';
 import * as jwt from 'jsonwebtoken';
@@ -73,7 +72,7 @@ export class UsersService {
       const user = await this.userRepository.findById(id);
       return this.toResponseObject(user, false);
     } catch (error) {
-      loggerInstance.log(
+      console.log(
         'Something went wrong while updating password for id ' +
           id +
           'and error is ' +

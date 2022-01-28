@@ -54,7 +54,13 @@ export class UsersController {
     @CurrentUser() user: User,
   ) {
     if (id == user._id) {
-      return this.usersService.update(id, updateUserDto);
+      const obj = {
+        firstName: updateUserDto.firstName,
+        lastName: updateUserDto.lastName,
+        phone: updateUserDto.phone,
+        preferredName: updateUserDto.preferredName,
+      };
+      return this.usersService.update(id, obj);
     }
     throw new ForbiddenException();
   }

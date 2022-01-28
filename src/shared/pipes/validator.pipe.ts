@@ -1,4 +1,3 @@
-import { loggerInstance } from './../../logger/index';
 import {
   PipeTransform,
   Injectable,
@@ -24,7 +23,7 @@ export class ValidationPipe implements PipeTransform<any> {
       try {
         value = JSON.parse(value.data);
       } catch (error) {
-        loggerInstance.log('Error parsing data while validation' + value);
+        console.log('Error parsing data while validation' + value);
       }
     }
     if (value instanceof Object && this.isEmptyObject(value)) {
@@ -40,7 +39,7 @@ export class ValidationPipe implements PipeTransform<any> {
     const object = plainToClass(metatype, value);
     const errors = await validate(object);
     if (errors.length > 0) {
-      loggerInstance.log(this.formatErrors(errors), 'error');
+      console.log(JSON.stringify(errors, null, 4) + '\n');
       throw new HttpException(`Invalid Request`, HttpStatus.BAD_REQUEST);
     }
     return value;
@@ -50,24 +49,5 @@ export class ValidationPipe implements PipeTransform<any> {
     const types: Function[] = [String, Boolean, Number, Array, Object];
     return !types.includes(metatype);
   }
-
-  private formatErrors = (errors: any[]) =>
-    errors.map((err) => {
-      if (err.children.length) {
-        // For Metadat Validation
-        return err.children
-          .map((err) => {
-            for (let property in err.constraints) {
-              return err.constraints[property];
-            }
-          })
-          .join();
-      } else {
-        for (let property in err.constraints) {
-          return err.constraints[property];
-        }
-      }
-    });
-
   private isEmptyObject = (object: any) => Object.keys(object).length === 0;
 }

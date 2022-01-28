@@ -6,7 +6,6 @@ import {
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { loggerInstance } from '../../../logger/index';
 
 @Injectable()
 export class HttpInterceptor implements NestInterceptor {
@@ -18,29 +17,7 @@ export class HttpInterceptor implements NestInterceptor {
     const url = req.url;
     return next.handle().pipe(
       map((data) => {
-        if (!data) {
-          return data;
-        }
-        if (data.error) {
-          loggerInstance.log(
-            `${method} ${res.statusCode} ${url} - Error :: ${data.message}`,
-            'error',
-          );
-          return {
-            code: res.statusCode,
-            payload: 'Error while processing the request',
-            error: true,
-            timeTaken: `${Date.now() - currentTime}ms`,
-            url,
-            method,
-          };
-        } else {
-          loggerInstance.log(
-            `${method} ${res.statusCode} ${url} - Success`,
-            'info',
-          );
-          return data;
-        }
+        return data;
       }),
     );
   }

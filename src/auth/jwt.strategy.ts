@@ -1,4 +1,3 @@
-import { loggerInstance } from 'src/logger/index';
 import { UsersService } from './../users/users.service';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PassportStrategy } from '@nestjs/passport';
@@ -20,15 +19,11 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
     try {
       const consumer = await this.userService.findOne(_id);
       if (consumer) {
-        return consumer.toResponseObject(false);
+        return this.userService.toResponseObject(consumer, false);
       }
       return null;
     } catch (error) {
-      loggerInstance.log(
-        'Unable to fetch consumer in auth guard',
-        'error',
-        'AuthGuard',
-      );
+      console.log(error);
       return null;
     }
   }

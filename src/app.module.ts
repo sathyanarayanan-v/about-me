@@ -8,7 +8,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './users/users.module';
 import { APP_INTERCEPTOR, APP_FILTER } from '@nestjs/core';
 import { HttpErrorFilter } from './shared/filters/http/http.filter';
-import { HttpInterceptor } from './shared/interceptors/http/http.interceptor';
+// import { HttpInterceptor } from './shared/interceptors/http/http.interceptor';
 import { LoggerInterceptor } from './shared/interceptors/logger/logger.interceptor';
 @Module({
   imports: [
@@ -21,10 +21,10 @@ import { LoggerInterceptor } from './shared/interceptors/logger/logger.intercept
   controllers: [AppController],
   providers: [
     AppService,
-    {
-      provide: APP_INTERCEPTOR,
-      useClass: HttpInterceptor,
-    },
+    // {
+    //   provide: APP_INTERCEPTOR,
+    //   useClass: HttpInterceptor,
+    // },
     {
       provide: APP_FILTER,
       useClass: HttpErrorFilter,
