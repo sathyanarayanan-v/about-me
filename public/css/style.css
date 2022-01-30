@@ -33,3 +33,31 @@ section {
   border-color: #dfc053 !important;
   outline: none;
 }
+.text-pink {
+  color: #e46ea3 !important;
+}
+.btn-pink,
+.bg-pink {
+  background-color: #e46ea3;
+  border-color: #e46ea3;
+  color: #fff;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.btn-pink:hover,
+.bg-pink:hover {
+  color: #fff !important;
+  background-color: #dfc053 !important;
+  border-color: #dfc053 !important;
+  outline: none;
+}
+.btn-pink:focus.btn-pink:hover,
+.bg-pink:focus.bg-pink:hover {
+  border-color: #e46ea3 !important;
+  outline: none;
+}
+.btn-pink:focus,
+.bg-pink:focus {
+  border-color: #e46ea3 !important;
+  outline: none;
+}
