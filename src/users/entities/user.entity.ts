@@ -1,9 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import * as mongoose from 'mongoose';
-import * as jwt from 'jsonwebtoken';
 import * as bcrypt from 'bcrypt';
-import { jwtConstants } from 'src/auth/constants';
 
 export type UserDocument = User & Document;
 
@@ -11,7 +9,7 @@ export enum Roles {
   USER = 'USER',
   ADMIN = 'ADMIN',
 }
-@Schema({ autoCreate: true, timestamps: true, toObject: {} })
+@Schema({ autoCreate: true, timestamps: true })
 export class User {
   @Prop({ required: true })
   firstName: string;
@@ -48,45 +46,7 @@ export class User {
   salt: string;
 
   createdAt?: Date;
-  _id?: any;
-
-  private get token(): string {
-    const { _id, email, role } = this;
-
-    return jwt.sign(
-      {
-        _id,
-        email,
-        role,
-      },
-      jwtConstants.pk,
-      {
-        expiresIn: '30d',
-        algorithm: 'HS256',
-        issuer: 'BezzieTech Authentication API',
-        audience: 'Lotus Event Management',
-        subject: `${email} - ${_id}`,
-      },
-    );
-  }
-
-  toResponseObject(showToken = true) {
-    const { _id, createdAt, email, token, firstName, lastName, phone, role } =
-      this;
-    const responseObject = {
-      _id,
-      createdAt,
-      email,
-      firstName,
-      lastName,
-      phone,
-      role,
-    };
-    if (showToken) {
-      responseObject['token'] = token;
-    }
-    return responseObject;
-  }
+  updatedAt?: Date;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

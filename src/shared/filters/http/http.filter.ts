@@ -27,7 +27,15 @@ export class HttpErrorFilter implements ExceptionFilter {
     const status = exception.getStatus
       ? exception.getStatus()
       : HttpStatus.INTERNAL_SERVER_ERROR;
-    console.error(exception);
+
+    if (status === HttpStatus.NOT_FOUND) {
+      res.status(status).render('404', {
+        code: status,
+        response: res,
+        pageTitle: 'Not Found',
+      });
+      return;
+    }
     const error_response = {
       code: status,
       payload: this.getPayload(status, exception),
@@ -37,6 +45,7 @@ export class HttpErrorFilter implements ExceptionFilter {
     };
     if (!error_response.payload.includes('starting at object')) {
       Logger.log(`${method} ${status} ${url}`, 'CustomErrorHandler');
+      console.error(exception);
     }
     res.status(status).json(error_response);
   }

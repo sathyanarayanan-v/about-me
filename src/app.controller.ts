@@ -1,4 +1,4 @@
-import { Controller, Get, HttpStatus, Res } from '@nestjs/common';
+import { Controller, Get, HttpStatus, Render, Res } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Response } from 'express';
 @Controller()
@@ -6,17 +6,26 @@ export class AppController {
   constructor() {}
 
   @Get('')
-  getStatus(@Res() res: Response) {
-    res
-      .status(200)
-      .redirect(
-        HttpStatus.MOVED_PERMANENTLY,
-        'https://lotusdecoreandrental.com',
-      );
+  @Render('home')
+  getStatus() {
+    return { message: 'hello' };
   }
 
-  @Get('health')
+  @Get('products')
+  @Render('products/index')
   getHealth() {
-    return true;
+    return { message: 'hello' };
+  }
+
+  @Get('services')
+  @Render('services/index')
+  getServices() {
+    return { message: 'hello' };
+  }
+
+  @Get('home')
+  @Render('home')
+  home() {
+    return { message: 'hello' };
   }
 }

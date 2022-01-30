@@ -9,7 +9,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateRoleDto, UpdateUserDto } from './dto/update-user.dto';
 import * as bcrypt from 'bcrypt';
 import { LoginDTO } from 'src/auth/auth.dto';
-import { User } from './entities/user.entity';
+import { UserDocument } from './entities/user.entity';
 import * as jwt from 'jsonwebtoken';
 import { jwtConstants } from 'src/auth/constants';
 @Injectable()
@@ -83,7 +83,7 @@ export class UsersService {
     }
   }
 
-  private gettoken(user: User): string {
+  private gettoken(user: UserDocument): string {
     const { _id, email, role } = user;
 
     return jwt.sign(
@@ -103,7 +103,7 @@ export class UsersService {
     );
   }
 
-  toResponseObject(user: User, showToken = true) {
+  toResponseObject(user: UserDocument, showToken = true) {
     const { _id, createdAt, email, firstName, lastName, phone, role } = user;
     const responseObject = {
       _id,

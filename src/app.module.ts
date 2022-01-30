@@ -10,13 +10,15 @@ import { APP_INTERCEPTOR, APP_FILTER } from '@nestjs/core';
 import { HttpErrorFilter } from './shared/filters/http/http.filter';
 // import { HttpInterceptor } from './shared/interceptors/http/http.interceptor';
 import { LoggerInterceptor } from './shared/interceptors/logger/logger.interceptor';
+import { CategoriesModule } from './categories/categories.module';
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27019/lotus_traders'),
-    UsersModule,
-    AuthModule,
-    SharedModule,
-    CloudinaryModule,
+    // MongooseModule.forRoot('mongodb://localhost:27019/lotus_traders'),
+    // UsersModule,
+    // AuthModule,
+    // SharedModule,
+    // CloudinaryModule,
+    // CategoriesModule,
   ],
   controllers: [AppController],
   providers: [

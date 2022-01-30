@@ -3,9 +3,7 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
-  Delete,
   Put,
   UseGuards,
   ForbiddenException,
@@ -18,7 +16,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { RoleGuard } from 'src/shared/guards/role.guard';
 import { Roles } from 'src/shared/decorators/roles.decorator';
 import { CurrentUser } from 'src/shared/decorators/user.decorator';
-import { User } from './entities/user.entity';
+import { UserDocument } from './entities/user.entity';
 import { ValidationPipe } from 'src/shared/pipes/validator.pipe';
 
 @Controller('users')
@@ -40,7 +38,7 @@ export class UsersController {
 
   @UseGuards(AuthGuard('jwt'))
   @Get(':id')
-  findOne(@Param('id') id: string, @CurrentUser() user: User) {
+  findOne(@Param('id') id: string, @CurrentUser() user: UserDocument) {
     if (user._id == id) return this.usersService.findOne(id);
     throw new ForbiddenException();
   }
@@ -51,7 +49,7 @@ export class UsersController {
   update(
     @Param('id') id: string,
     @Body() updateUserDto: UpdateUserDto,
-    @CurrentUser() user: User,
+    @CurrentUser() user: UserDocument,
   ) {
     if (id == user._id) {
       const obj = {
