@@ -61,3 +61,8 @@ section {
   border-color: #e46ea3 !important;
   outline: none;
 }
+img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
