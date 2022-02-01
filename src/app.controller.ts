@@ -1,12 +1,21 @@
-import { Controller, Get, HttpStatus, Render, Res } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+import {
+  Controller,
+  Get,
+  HttpStatus,
+  Render,
+  Res,
+  UseGuards,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 import { Response } from 'express';
 @Controller()
 export class AppController {
   constructor() {}
 
+  // @UseGuards(AuthGuard('jwt'))
   @Get('')
-  @Render('home')
+  @Render('index')
   getStatus() {
     return { message: 'hello' };
   }
