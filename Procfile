@@ -1,1 +1,1 @@
-web: ls && npm ci &&  npm run start:prod
+web: ls &&  npm run start:prod
