@@ -1,0 +1,60 @@
+<head>
+  <title>Sathyanarayanan Vaithianathan - Personal Website</title>
+  <meta charset='utf-8' />
+  <meta
+    name='viewport'
+    content='width=device-width, initial-scale=1, shrink-to-fit=no'
+  />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'
+    rel='stylesheet'
+    integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3'
+    crossorigin='anonymous'
+  />
+  <link
+   rel="stylesheet" 
+   href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+   >
+  <link rel='stylesheet' href='/css/style.css' />
+</head>
+<body>
+{{> skeleton/header/index}}
+  {{{body}}}
+  {{> skeleton/footer}}
+  <script
+    src='https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js'
+  ></script>
+  <script
+    src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
+    integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1'
+    crossorigin='anonymous'
+  ></script>
+  <script
+    src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'
+    integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p'
+    crossorigin='anonymous'
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+            window.addEventListener('scroll', (e) => {
+                const nav =
+                    document.querySelector('.navbar');
+                if (window.pageYOffset > 0) {
+                    nav.classList.add("shadow-lg");
+                    nav.classList.add('navbar-linear-gradient')
+                } else {
+                    nav.classList.remove("shadow-lg");
+                    nav.classList.remove('navbar-linear-gradient')
+                }
+            });
+            $(document).ready(function() {
+                $(".nav-item a").each(function() {
+                    $(this).toggleClass('active', '/' + $(this).attr('href') ==
+                        window.location.pathname);
+                })
+            });
+  </script>
+  <script src='/js/main.js'></script>
+</body>

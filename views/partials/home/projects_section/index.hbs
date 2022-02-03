@@ -1,0 +1,10 @@
+<section id='projects' class='pt-5 pt-3'>
+  <div class='container'>
+    <h2 class='text-center my-2'>My Projects</h2>
+
+    <div class='row'>
+        {{#each projects}}
+        {{> home/projects_section/project project=this }}
+        {{/each}}
+    </div>
+  </div></section>

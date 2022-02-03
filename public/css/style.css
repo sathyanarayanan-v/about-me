@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+* {
+  font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
+}
+
+section {
+  position: relative;
+  top: 5rem !important;
+}
+
+.btn-gold,
+.bg-gold {
+  background-color: #dfc053;
+  border-color: #dfc053;
+  color: #fff;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.btn-gold:hover,
+.bg-gold:hover {
+  color: #fff !important;
+  background-color: #e46ea3 !important;
+  border-color: #e46ea3 !important;
+  outline: none;
+}
+.btn-gold:focus.btn-gold:hover,
+.bg-gold:focus.bg-gold:hover {
+  border-color: #e46ea3 !important;
+  outline: none;
+}
+.btn-gold:focus,
+.bg-gold:focus {
+  border-color: #dfc053 !important;
+  outline: none;
+}
+.text-pink {
+  color: #e46ea3 !important;
+}
+.btn-pink,
+.bg-pink {
+  background-color: #e46ea3;
+  border-color: #e46ea3;
+  color: #fff;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.btn-pink:hover,
+.bg-pink:hover {
+  color: #fff !important;
+  background-color: #dfc053 !important;
+  border-color: #dfc053 !important;
+  outline: none;
+}
+.btn-pink:focus.btn-pink:hover,
+.bg-pink:focus.bg-pink:hover {
+  border-color: #e46ea3 !important;
+  outline: none;
+}
+.btn-pink:focus,
+.bg-pink:focus {
+  border-color: #e46ea3 !important;
+  outline: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.text-pink {
+  color: #e46ea3 !important;
+}
