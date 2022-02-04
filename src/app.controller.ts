@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post, Render } from '@nestjs/common';
-
+import * as nodemailer from 'nodemailer';
 @Controller()
 export class AppController {
   projects: Array<any>;
@@ -108,7 +108,42 @@ export class AppController {
   }
 
   @Post('api/contact-us')
-  sendMessage(@Body() mail) {
-    console.log(mail);
+  async sendMessage(@Body() mail: any) {
+    if (!(mail.email && mail.fullName)) {
+      return;
+    }
+    let transporter = nodemailer.createTransport({
+      host: process.env.MAIL_HOST,
+      port: parseInt(process.env.MAIL_PORT, 10),
+      secure: true, // true for 465, false for other ports
+      auth: {
+        user: process.env.MAIL_USERNAME, // generated ethereal user
+        pass: process.env.MAIL_PASSWORD, // generated ethereal password
+      },
+    });
+
+    // send mail with defined transport object
+    try {
+      let info = await transporter.sendMail({
+        from:
+          '' +
+          `"${mail.fullName || 'No name provided'} 👻"` +
+          `${process.env.MAIL_USERNAME}`, // sender address
+        to: 'svvsathyanarayanan@gmail.com', // list of receivers
+        subject: mail.fullName + ' is trying to reach you from website ✔', // Subject line
+        text: mail.subject, // plain text Body
+        html:
+          '<b> Subject: </b>' +
+          mail.subject +
+          '. <br/><b> Email: </b>' +
+          mail.email +
+          '. <br/><b> Message: </b>' +
+          mail.message +
+          '.</b>',
+      });
+      console.log('success ', info);
+    } catch (err) {
+      console.log('error', err);
+    }
   }
 }

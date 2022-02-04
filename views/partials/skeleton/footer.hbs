@@ -86,7 +86,8 @@
 
           <div class='row mt-2'>
             <div class='col-12 text-end'>
-              <button class='btn btn-pink' id='send-message'>Send a Message
+              <button class='btn btn-pink' id='send-message' type='button'>
+                Send a Message
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='16'
@@ -100,9 +101,53 @@
                   ></path>
                 </svg>
               </button>
+              <button
+                class='btn btn-pink'
+                id='loading-btn'
+                type='button'
+                disabled='disabled'
+              >
+                <span
+                  class='spinner-border spinner-border-sm'
+                  role='status'
+                  aria-hidden='true'
+                ></span>
+                <span class='m-2'>Sending...</span>
+              </button>
             </div>
           </div>
         </form>
+      </div>
+    </div>
+  </div>
+  <button type='button' class='btn btn-primary d-none' id='liveToastBtn'>Show
+    live toast</button>
+
+  <div class='position-fixed bottom-0 end-0 p-3' style='z-index: 11'>
+    <div
+      id='liveToast'
+      class='toast hide'
+      role='alert'
+      aria-live='assertive'
+      aria-atomic='true'
+    >
+      <div class='toast-header'>
+        <img
+          src='https://dummyimage.com/40x40/dfc153/000000&text=SV'
+          class='rounded me-2'
+          alt='logo'
+        />
+        <strong class='me-auto'>Message</strong>
+        <small>Just Now</small>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='toast'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='toast-body'>
+        Message sent successfully
       </div>
     </div>
   </div>
