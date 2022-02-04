@@ -1,9 +1,10 @@
-import { AuthGuard } from '@nestjs/passport';
 import { Body, Controller, Get, Post, Render } from '@nestjs/common';
 
 @Controller()
 export class AppController {
   projects: Array<any>;
+  socials: Array<any>;
+  values: Array<any>;
   constructor() {
     this.projects = [
       {
@@ -34,17 +35,64 @@ export class AppController {
         amplifyc: true,
       },
     ];
+    this.socials = [
+      {
+        title: 'Github',
+        description:
+          'Maintaining around <strong>9 public repositories.</strong> Worked exclusively on <strong>Full - Stack Web Application.</strong> I have also worked partially on developing desktop apps with electron and C#. Not to wonder, I have also developed a basic <strong>Alexa Skill.</strong>',
+        link: 'https://github.com/sathyanarayanan-v',
+        img: '/img/github.jpeg',
+      },
+      {
+        title: 'Facebook',
+        description:
+          "Get to know whom I know, where I've been, and what I've done on my Facebook page. I live in Chico, CA, and have been part of groups that give and take stuff we no longer need so that others are able to benefit from it. <br/> <span style='font-size:12px !important;'>Photo by <a href='https://unsplash.com/@theshubhamdhage?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Shubham Dhage</a> on <a href='https://unsplash.com/s/photos/facebook?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a></span>",
+        link: 'https://www.facebook.com/people/Sathya/100054658068732/',
+        img: '/img/facebook.jpg',
+      },
+      {
+        title: 'Linkedin',
+        description:
+          "Having more than 150 followers and cconnections on linkedin, I always reach out to people appreciating their efforts to bring good things to the universe. I have also given my first post on Linkedin showing one of my projects. <br/> <span style='font-size:12px !important;'>Photo by <a href='https://unsplash.com/@alexbemore?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Alexander Shatov</a> on <a href='https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a></span>",
+        link: 'https://linkedin.com/in/sathyanarayanan-vaithianathan/',
+        img: '/img/linkedin.jpg',
+      },
+    ];
+    this.values = [
+      {
+        title: 'Highly adaptive',
+        description:
+          'Having a willingness to bend and break habits, I challenge myself when circumstances change. I face problems, pivot among distractions, and politely proceed forward. I consistently focus on improvement. I always believe <strong>mistakes are always an opportunity to learn.</strong>',
+        img: 'https://dummyimage.com/720x480/e46ea3/ffffff.png&text=Im+!+possible',
+        link: 'https://dummyimage.com/720x480/e46ea3/ffffff.png&text=Im+!+possible',
+      },
+      {
+        title: 'Entrepreneurial spirit',
+        description:
+          "Beside being a developer, I'm also an entrepreneur since 2018. I started <a href='https://bezzietech.com' target='_blank'>BezzieTech</a> for developing, deploying and maintaining web applications. As an entrepreneur, I always seek growth and understanding, and embraces challenges and opportunites. ",
+        img: 'https://dummyimage.com/720x480/1bb2dc/ffffff.png&text=BezzieTech',
+        link: 'https://bezzietech.com',
+      },
+      {
+        title: 'Self motivated',
+        description:
+          'Are you managing a big team? <strong>You never have to worry about my work!</strong> I got this. With little supervision and direction to the work, I bring perfection and attention to detail. A greater level of individual participation will lead to a better understanding, I believe.',
+        img: "https://dummyimage.com/720x480/e46ea3/ffffff.png&text=I+can't+->+I+can+:)",
+        link: "https://dummyimage.com/720x480/e46ea3/ffffff.png&text=I+can't+->+I+can+:)",
+      },
+    ];
   }
+
   @Get('')
   @Render('home')
   getStatus() {
     return { projects: this.projects };
   }
 
-  @Get('products')
-  @Render('products/index')
+  @Get('about-me')
+  @Render('aboutme/index')
   getHealth() {
-    return { message: 'hello' };
+    return { socials: this.socials, values: this.values };
   }
 
   @Get('services')

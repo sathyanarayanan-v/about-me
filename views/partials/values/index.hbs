@@ -1,0 +1,11 @@
+<section id='values' class='pt-5 pt-3'>
+  <div class='container'>
+    <h2 class='text-center my-2'>My Values</h2>
+
+    <div class='row'>
+        {{#each values}}
+            {{> values/value values=values }}
+        {{/each}}
+    </div>
+  </div>
+</section>
