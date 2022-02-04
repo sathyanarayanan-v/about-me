@@ -63,8 +63,8 @@ export class AppController {
         title: 'Highly adaptive',
         description:
           'Having a willingness to bend and break habits, I challenge myself when circumstances change. I face problems, pivot among distractions, and politely proceed forward. I consistently focus on improvement. I always believe <strong>mistakes are always an opportunity to learn.</strong>',
-        img: 'https://dummyimage.com/720x480/e46ea3/ffffff.png&text=Im+!+possible',
-        link: 'https://dummyimage.com/720x480/e46ea3/ffffff.png&text=Im+!+possible',
+        img: 'https://dummyimage.com/720x480/e46ea3/ffffff.png&text=Im+=+possible',
+        link: 'https://dummyimage.com/720x480/e46ea3/ffffff.png&text=Im+=+possible',
       },
       {
         title: 'Entrepreneurial spirit',
@@ -76,9 +76,9 @@ export class AppController {
       {
         title: 'Self motivated',
         description:
-          'Are you managing a big team? <strong>You never have to worry about my work!</strong> I got this. With little supervision and direction to the work, I bring perfection and attention to detail. A greater level of individual participation will lead to a better understanding, I believe.',
-        img: "https://dummyimage.com/720x480/e46ea3/ffffff.png&text=I+can't+->+I+can+:)",
-        link: "https://dummyimage.com/720x480/e46ea3/ffffff.png&text=I+can't+->+I+can+:)",
+          'Are you managing a big team? <strong>You never have to worry about how I work!</strong> I got this. With little supervision and direction to the work, I bring perfection and attention to detail. A greater level of individual participation will lead to a better understanding, I believe.',
+        img: "https://dummyimage.com/720x480/e46ea3/ffffff.png&text=I+can't+<+I'll+try",
+        link: "https://dummyimage.com/720x480/e46ea3/ffffff.png&text=I+can't+<+I'll+try",
       },
     ];
   }
