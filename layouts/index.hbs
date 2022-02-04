@@ -51,10 +51,15 @@
             });
             $(document).ready(function() {
                 $(".nav-item a").each(function() {
-                    $(this).toggleClass('active', '/' + $(this).attr('href') ==
-                        window.location.pathname);
+                    $(this).toggleClass('active', $(this).attr('href').includes(location.href.split("#")[1]));
                 })
             });
+            document.querySelectorAll('.offcanvas-body > div >a').forEach(function(ele){
+              ele.onclick = function(event){
+                 var canvas = document.querySelector('[data-bs-dismiss="offcanvas"]')
+                 canvas.click();
+              }
+            })
   </script>
   <script src='/js/main.js'></script>
 </body>

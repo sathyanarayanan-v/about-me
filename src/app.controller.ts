@@ -53,7 +53,7 @@ export class AppController {
       {
         title: 'Linkedin',
         description:
-          "Having more than 150 followers and cconnections on linkedin, I always reach out to people appreciating their efforts to bring good things to the universe. I have also given my first post on Linkedin showing one of my projects. <br/> <span style='font-size:12px !important;'>Photo by <a href='https://unsplash.com/@alexbemore?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Alexander Shatov</a> on <a href='https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a></span>",
+          "Having more than 150 followers and connections on linkedin, I always reach out to people appreciating their efforts to bring good things to the universe. I have also given my first post on Linkedin showing one of my projects. <br/> <span style='font-size:12px !important;'>Photo by <a href='https://unsplash.com/@alexbemore?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Alexander Shatov</a> on <a href='https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a></span>",
         link: 'https://linkedin.com/in/sathyanarayanan-vaithianathan/',
         img: '/img/linkedin.jpg',
       },
