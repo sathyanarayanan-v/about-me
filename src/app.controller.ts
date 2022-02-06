@@ -34,6 +34,15 @@ export class AppController {
         class: "class='btn btn-primary rounded-pill'",
         amplifyc: true,
       },
+      {
+        title: 'Talent Acquisition Management',
+        description:
+          "The project Talent Acquisition Platform is still <strong>WIP.</strong> I'm planning to create a product, wherein the companies can create, edit, delete the job openings. The candidates would be able to apply to the job openings and see their status immediately after update. I have planned to use <strong>React.JS</strong> for front-end, <strong>Nest.JS</strong> for APIs', <strong>Socket.IO</strong> for immediate update and <strong>Docker containers</strong> for deployment.",
+        link: '#',
+        img: 'https://dummyimage.com/720x480/dfc153/000000&text=TAP',
+        class: "class='btn btn-primary rounded-pill'",
+        amplifyc: true,
+      },
     ];
     this.socials = [
       {
