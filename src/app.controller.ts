@@ -10,7 +10,7 @@ export class AppController {
       {
         title: 'Social Blogging App',
         description:
-          'A basic blogging web app which is built on top of <b>Angular 8 and Firebase</b>. The user can view, create, edit and delete their own blogs. User can book tickets for tours and provide them offline to validate the purchase. <br/> Logo Courtesy: Sakthibala',
+          'A basic blogging web app which is built on top of <strong>Angular 8 and Firebase</strong>. The user can view, create, edit and delete their own blogs. User can book tickets for tours and provide them offline to validate the purchase. <br/> Logo Courtesy: Sakthibala',
         link: 'https://vibrant-nightingale-1f752e.netlify.app/',
         img: 'https://vibrant-nightingale-1f752e.netlify.app/assets/images/finalized.jpg',
         class: "class='btn btn-warning rounded-pill'",
@@ -19,18 +19,18 @@ export class AppController {
       {
         title: 'Lotus Traders',
         description:
-          'An E-commerce application used to rent products, hire people and opt services for events like Engagement. The application is built on <b>Next.JS, Nest.JS, TypeORM and MySQL</b>. Deployments are done using <b>Heroku and Netlify</b> which involves CI/CD',
+          'An E-commerce application used to rent products, hire people and opt services for events like Engagement. The application is built on <strong>Next.JS, Nest.JS, TypeORM and MySQL</strong>. Deployments are done using <strong>Heroku and Netlify</strong> which involves CI/CD',
         link: 'https://www.lotusdecoreandrental.com',
         img: 'https://lotusdecoreandrental.com/logo.png',
         class: "class='btn btn-pink rounded-pill'",
         lotus: true,
       },
       {
-        title: 'AmplifyC',
+        title: 'Personal Website',
         description:
-          "This project is used for managing compliance of companies incorporated. This project is being used by 25 users and it's currently in testing phase. This project involved <b>Vue.JS, Nest.JS, MongoDB, Celery, Redis Queue and Docker Container </b>",
-        link: 'https://sathyanarayanan-v.github.io/AmplifyCClient/',
-        img: 'https://sathyanarayanan-v.github.io/AmplifyCClient/img/logo.3d45e3b5.svg',
+          "Portfolio website showing my projects, the values I bring in to an organisation, if hired and my social media presence. I have tried something new in this project. I have used <strong>Handlebar.JS</strong> for rendering the website. This project is not a SPA, but it's <strong>Server Side Rendered.</strong><br/><br/>",
+        link: '#',
+        img: 'https://dummyimage.com/720x480/dfc153/000000&text=SV',
         class: "class='btn btn-primary rounded-pill'",
         amplifyc: true,
       },
@@ -133,13 +133,13 @@ export class AppController {
         subject: mail.fullName + ' is trying to reach you from website ✔', // Subject line
         text: mail.subject, // plain text Body
         html:
-          '<b> Subject: </b>' +
+          '<strong> Subject: </strong>' +
           mail.subject +
-          '. <br/><b> Email: </b>' +
+          '. <br/><strong> Email: </strong>' +
           mail.email +
-          '. <br/><b> Message: </b>' +
+          '. <br/><strong> Message: </strong>' +
           mail.message +
-          '.</b>',
+          '.</strong>',
       });
       console.log('success ', info);
     } catch (err) {
