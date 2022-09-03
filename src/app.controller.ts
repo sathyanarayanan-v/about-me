@@ -121,7 +121,7 @@ export class AppController {
     if (!(mail.email && mail.fullName)) {
       return;
     }
-    let transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST,
       port: parseInt(process.env.MAIL_PORT, 10),
       secure: true, // true for 465, false for other ports
@@ -133,7 +133,7 @@ export class AppController {
 
     // send mail with defined transport object
     try {
-      let info = await transporter.sendMail({
+      const info = await transporter.sendMail({
         from:
           '' +
           `"${mail.fullName || 'No name provided'} 👻"` +
@@ -149,6 +149,54 @@ export class AppController {
           '. <br/><strong> Message: </strong>' +
           mail.message +
           '.</strong>',
+      });
+      console.log('success ', info);
+    } catch (err) {
+      console.log('error', err);
+    }
+  }
+
+  @Post('api/rsvp')
+  async sendRsvp(@Body() mail: any) {
+    if (!(mail.email && mail.fullName)) {
+      return;
+    }
+    const { email, fullName, phone, kid, adult, message, attendingTheEvent } =
+      mail;
+    const transporter = nodemailer.createTransport({
+      host: process.env.MAIL_HOST,
+      port: parseInt(process.env.MAIL_PORT, 10),
+      secure: true, // true for 465, false for other ports
+      auth: {
+        user: process.env.MAIL_USERNAME, // generated ethereal user
+        pass: process.env.MAIL_PASSWORD, // generated ethereal password
+      },
+    });
+
+    const attendanceText =
+      attendingTheEvent === 'true'
+        ? `is attending the event and the headcount is ${kid} and ${adult}`
+        : `is not attending the event`;
+    const html = `
+    ${fullName || 'No Name provided'} <strong>${attendanceText}</strong><br/> 
+    The message from ${fullName} is: <br/><br/> 
+    ${message}<br/><br/>
+
+    Contact Details: <br/>
+    E-mail: ${email || 'Not Provided'}<br/>
+    Phone: ${phone || 'Not Provided'} 
+
+    `;
+    // send mail with defined transport object
+    try {
+      const info = await transporter.sendMail({
+        from:
+          '' +
+          `"${mail.fullName || 'No name provided'}"` +
+          `${process.env.MAIL_USERNAME}`, // sender address
+        to: process.env.RSVP_EMAIL, // list of receivers
+        subject: mail.fullName + "'s RSVP response", // Subject line
+        html: html,
       });
       console.log('success ', info);
     } catch (err) {
