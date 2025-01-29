@@ -1,4 +1,11 @@
-import { Globe, Link as LinkIcon, Mail, MapPin, Phone } from "lucide-react";
+import {
+  ExternalLink,
+  Globe,
+  Link as LinkIcon,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
 
 const Resume = () => {
   const personalInfo = {
@@ -36,7 +43,7 @@ const Resume = () => {
       title: "Portfolio Website",
       description:
         "Personal portfolio with email integration and dynamic content",
-      link: "#",
+      link: "https://github.com/sathyanarayanan-v/about-me",
       technologies: "NestJS, Handlebars, and Nodemailer",
       image: "/portfolio.jpeg",
       imageContain: true,
@@ -46,11 +53,15 @@ const Resume = () => {
   const experience = [
     {
       role: "Software Engineer",
-      company: "CueBack",
+      company: "My Stories Matter",
+      companyLink: "https://www.mystoriesmatter.com",
       location: "Palo Alto, CA",
       period: "Jun 2023 – Present",
       logo: "/MSM.png",
       achievements: [
+        "Developed an InDesign automation script using JavaScript that reduced book generation time from 7.2 hours to 1 minute, processing 200+ page books with consistent formatting",
+        "Engineered dynamic image grid layouts handling 4-5 image rows and implemented smart page separation for chapter-wise content using InDesignJS",
+        "Automated book formatting workflow resulting in 7+ hours of time savings per book while maintaining consistent formatting and smart image placement",
         "Migrate existing React project from JavaScript to TypeScript and support the API using NestJS, integrating Swagger UI and CRON jobs, and implementing automated email feature within an Agile Environment",
         "Incorporate OpenAI API for generating written memories with multiple user prompts, collaborating with the development team for seamless migration and optimal performance in an Agile Software Development context",
         "Migrated Redux state management to React Query v4, enhancing data fetching and caching capabilities for improved performance and scalability",
@@ -58,7 +69,8 @@ const Resume = () => {
     },
     {
       role: "Software Engineer Intern",
-      company: "CueBack",
+      company: "My Stories Matter",
+      companyLink: "https://www.mystoriesmatter.com",
       location: "Palo Alto, CA",
       period: "May 2022 – May 2023",
       logo: "/MSM.png",
@@ -73,6 +85,7 @@ const Resume = () => {
     {
       role: "Software Developer",
       company: "BeezLabs",
+      companyLink: "https://www.beezlabs.com",
       location: "India",
       period: "Aug 2020 – Aug 2021",
       logo: "/beezlabs.png",
@@ -84,7 +97,8 @@ const Resume = () => {
     },
     {
       role: "Software Developer",
-      company: "Rapid",
+      company: "Rapid Automation",
+      companyLink: "https://rapidautomation.ai/",
       location: "India",
       period: "Jun 2019 – Aug 2020",
       logo: "/rap.svg",
@@ -296,7 +310,15 @@ const Resume = () => {
                   />
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold">{job.role}</h3>
-                    <div className="text-purple-400">{job.company}</div>
+                    <a
+                      href={job.companyLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-purple-400 flex gap-2 items-center"
+                    >
+                      {job.company}
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
                     <div className="flex justify-between items-center mt-2 text-sm text-gray-400">
                       <span>{job.period}</span>
                       <span className="flex items-center gap-1">
@@ -472,6 +494,7 @@ export const metadata: Metadata = {
     url: "https://svaithianathan.bezzietech.com",
     siteName: "Sathya's Portfolio",
   },
+  metadataBase: new URL("https://svaithianathan.bezzietech.com/"),
   twitter: {
     card: "summary_large_image",
     title: "Sathyanarayanan Vaithianathan - Senior Frontend Engineer",
