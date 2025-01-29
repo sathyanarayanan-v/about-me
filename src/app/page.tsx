@@ -470,6 +470,7 @@ export const metadata: Metadata = {
     ],
     locale: "en_US",
     url: "https://svaithianathan.bezzietech.com",
+    siteName: "Sathya's Portfolio",
   },
   twitter: {
     card: "summary_large_image",
