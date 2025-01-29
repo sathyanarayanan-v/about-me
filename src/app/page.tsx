@@ -143,6 +143,7 @@ const Resume = () => {
       "Developed MaayanCorp, an innovative booking app revolutionizing reservation experiences by connecting users with a diverse network of reliable service providers in real-time. Used Technology: Next.JS, Nest.JS, MongoDB, Docker Container and Nginx",
       "Designed an advanced e-commerce app with robust rental capabilities, accommodating infinite product combinations for enhanced user convenience and integrating Google Drive for photo storage, optimizing product visuals and enhancing the overall shopping experience. Used Technology: Next.JS, Nest.JS, MongoDB, Docker Container and Nginx",
     ],
+    companyLink: "https://bezzietech.com",
   };
 
   const education = [
@@ -418,7 +419,15 @@ const Resume = () => {
               />
               <div className="flex-1">
                 <h3 className="text-lg font-semibold">{achievements.role}</h3>
-                <div className="text-purple-400">{achievements.company}</div>
+                <a
+                  href={achievements.companyLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-400 flex gap-2 items-center"
+                >
+                  {achievements.company}
+                  <ExternalLink className="w-4 h-4" />
+                </a>
                 <div className="text-sm text-gray-400 mt-2">
                   {achievements.period}
                 </div>
