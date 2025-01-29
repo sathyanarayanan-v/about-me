@@ -431,3 +431,68 @@ const Resume = () => {
 };
 
 export default Resume;
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sathyanarayanan Vaithianathan | Senior Frontend Engineer",
+  description:
+    "Portfolio of Sathyanarayanan Vaithianathan, a Senior Frontend Engineer with expertise in React, Next.js, TypeScript, and Node.js. Experienced in building scalable web applications and enterprise solutions.",
+  keywords: [
+    "Sathyanarayanan Vaithianathan",
+    "Frontend Engineer",
+    "React Developer",
+    "Next.js Developer",
+    "TypeScript",
+    "Node.js",
+    "Web Development",
+    "Software Engineer",
+    "Full Stack Developer",
+    "JavaScript",
+    "NestJS",
+    "MongoDB",
+    "Docker",
+  ],
+  authors: [{ name: "Sathyanarayanan Vaithianathan" }],
+  creator: "Sathyanarayanan Vaithianathan",
+  publisher: "Sathyanarayanan Vaithianathan",
+  openGraph: {
+    type: "profile",
+    title: "Sathyanarayanan Vaithianathan - Senior Frontend Engineer Portfolio",
+    description:
+      "Senior Frontend Engineer specializing in React, Next.js, and TypeScript with experience in building scalable web applications.",
+    images: [
+      {
+        url: "/og_image.png", // You'll need to create and add this image
+        width: 1200,
+        height: 630,
+        alt: "Sathyanarayanan Vaithianathan - Portfolio",
+      },
+    ],
+    locale: "en_US",
+    url: "https://svaithianathan.bezzietech.com",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sathyanarayanan Vaithianathan - Senior Frontend Engineer",
+    description:
+      "Senior Frontend Engineer with expertise in React, Next.js, TypeScript, and modern web technologies.",
+    images: ["/og_image.png"], // Same image as OpenGraph
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://svaithianathan.bezzietech.com",
+  },
+  verification: {
+    google: "3PVe-_D80SYgmyrlAV7KLO8w1kIbe4ponmpj_fgYO7E",
+  },
+};
